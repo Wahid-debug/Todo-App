@@ -14,11 +14,13 @@ import axios from "axios";
 function User() {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState();
   const loadPosts = async () => {
       console.log("page", page)
     const res = await axios.get(`https://reqres.in/api/users?page=${page}`);
     setPosts(res.data.data);
-    console.log(res.data.data)
+    setTotalPages(res.data.total_pages)
+    console.log(res.data)
   };
   useEffect(() => {
     loadPosts();
@@ -46,7 +48,7 @@ function User() {
         </Grid>
         <Box py={3} display="flex" justifyContent="center">
           <Pagination
-            count={2}
+            count={totalPages}
             color="secondary"
             variant="outlined"
             onChange={(e, value) => setPage(value)}
