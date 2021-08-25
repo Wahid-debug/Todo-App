@@ -36,7 +36,7 @@ function User() {
               <Card key={post.id} style={{ height: 250 }}>
                 <CardContent>
                   <Typography variant="h6">
-                    <img style={{height:"50%",borderRadius:50}} src={post.avatar} />
+                    <img style={{height:"50%",borderRadius:50}} src={post.avatar} alt="images" />
                   </Typography>
                   <Typography variant="body1">{`${post.first_name} ${post.last_name} `}</Typography>
                 </CardContent>
